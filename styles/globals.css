@@ -1,26 +1,40 @@
+:root {
+    --white: #fefefeff;
+    --highlight-blue: #b2d2f6ff;
+    --seasalt: #f9f9f9ff;
+    --dark-gray: #706462ff;
+    --light-gray: #f0f0f4;
+    --dark-blue: #434e69ff;
+    --white-2: #fbfcfcff;
+    --seasalt-2: #f7f7f7ff;
+    --received-chat-color: #fefefeff;
+    --sent-chat-color: #d9fdd3ff;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #fff;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+    html {
+        color-scheme: dark;
+    }
+    body {
+        color: white;
+        background: black;
+    }
 }

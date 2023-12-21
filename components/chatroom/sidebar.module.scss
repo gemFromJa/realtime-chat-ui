@@ -1,0 +1,31 @@
+.container {
+    background-color: var(--light-gray);
+}
+
+.top{
+    background-color: #fff;
+    height: 64px;
+    width: 100%;
+    border-bottom: 1px solid var(--light-gray);
+
+    /** for the lols */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rooms {
+    font-size: 12px;
+
+    .room {
+        cursor: pointer;
+        padding: 12px 16px;
+        background-color: #fff;
+        border-bottom: 1px solid var(--light-gray);
+        transition: color 15ms ease-in-out;
+
+        &:hover{
+            color: var(--dark-gray);
+        }
+    }
+}
