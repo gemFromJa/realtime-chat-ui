@@ -5,10 +5,11 @@ export default function RoomState() {
     const [currentRoom, changeRoom] = useState<{
         name: string;
         _id: string;
-    } | null>(
-        /* null */ { _id: "65831b373da0765b80fd44d0", name: "first room" }
-    );
+    } | null>();
+    /* null */
     const [currentMembers, setMembers] = useState<any[]>([]);
+
+    console.log("CURRENT ROOM", currentRoom);
 
     return {
         data: { rooms, currentMembers, currentRoom },

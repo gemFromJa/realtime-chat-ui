@@ -6,19 +6,16 @@ import Message from "./chat/Message";
 import { AppContext } from "../../context";
 import useChat from "../../hooks/useChat";
 import useScrollManager from "../../hooks/useScrollManager";
+import Navbar from "../Navbar";
 
 export default function Chat() {
     const [text, setText] = useState("");
     const { elementRef } = useScrollManager();
-    const { messages, fetchRoomInfo, sendMessage } = useChat();
+    const { messages, sendMessage } = useChat();
     const {
         // chat: { messages },
-        auth: { user },
+        auth: { user: appUser },
     } = useContext(AppContext);
-
-    useEffect(() => {
-        fetchRoomInfo();
-    }, []);
 
     const onSend = async () => {
         const result = await sendMessage(text);
@@ -33,10 +30,12 @@ export default function Chat() {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <input
+                {/* <input
                     placeholder="Search messages"
                     className={styles.search}
-                />
+                /> */}
+
+                <Navbar hideName={true} />
             </div>
             <div className={styles.chatarea} ref={elementRef}>
                 {/*  
@@ -45,11 +44,20 @@ export default function Chat() {
                 <Message user="sheela" message="I will fuck you up!" />
                 <Message user="tom" message="I will fuck you up!" /> */}
                 {messages?.map(
-                    ({ user_id: { username: sender, _id }, message }: any) => (
+                    ({
+                        user_id: { username: sender, _id },
+                        message,
+                        translations,
+                        lang,
+                        date,
+                    }: Message) => (
                         <Message
                             user={sender}
                             message={message}
-                            isUser={_id === user?._id}
+                            isUser={_id === appUser?._id}
+                            translations={translations}
+                            lang={lang}
+                            time={date}
                         />
                     )
                 )}

@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import type { AppProps } from "next/app";
 import ContextWrapper from "../context";
+import styles from "../styles/global.module.scss";
 import "../styles/globals.css";
 
 const poppins = Poppins({
@@ -13,7 +14,7 @@ const poppins = Poppins({
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <ContextWrapper>
-            <main className={poppins.className}>
+            <main className={[poppins.className, styles.root].join(" ")}>
                 <Component {...pageProps} />
             </main>
         </ContextWrapper>

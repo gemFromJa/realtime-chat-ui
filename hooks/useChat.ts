@@ -1,41 +1,44 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../context";
-import axios from "axios";
-import { API } from "../constants";
+import { loadRoom, sendMessage as sendMessageToServer } from "../misc/room";
 
 export default function useChat() {
     const {
+        app: { language },
         auth: { user },
         chat: { messages, setMessages },
-        room: { currentRoom, currentMembers, setMembers, changeRoom },
+        room: { currentRoom, currentMembers, setMembers, setRooms, changeRoom },
     } = useContext(AppContext);
 
     // fetch the messages
     const fetchRoomInfo = async () => {
-        const { data } = await axios.get(`${API}/room/${currentRoom?._id}`);
-
-        if (data.error) {
-            // TODO: handle error
+        console.log("FETCHING FOR ROOM DATA: ", currentRoom);
+        if (currentRoom) {
+            const { data, error } = await loadRoom(currentRoom._id);
+            if (error) {
+                // TODO: handle error
+            } else {
+                // changeRoom((_room: any) => ({ ..._room, name: room.name }));
+                setMessages(() => data.messages);
+                setMembers(() => data.members);
+            }
         }
-
-        const { data: room } = data;
-
-        changeRoom({ name: room.name, _id: room._id });
-        setMessages(room.messages);
-        setMembers(room.members);
     };
 
     const sendMessage = async (message: string) => {
-        const { data } = await axios.post(
-            `${API}/room/${currentRoom?._id}/message`,
-            {
-                message: message.trim(),
-                user_id: user?._id,
-            }
-        );
+        const data = await sendMessageToServer({
+            language,
+            message,
+            user_id: user?._id,
+            room_id: currentRoom._id,
+        });
 
         return data;
     };
+
+    useEffect(() => {
+        fetchRoomInfo();
+    }, [currentRoom?._id]);
 
     return {
         changeRoom,

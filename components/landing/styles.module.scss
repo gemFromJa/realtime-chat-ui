@@ -1,0 +1,106 @@
+.page {
+    width: 100%;
+    max-width: var(--max-app-content-width);
+    padding: 24px 0 32px 0;
+}
+
+.roomContainer{
+    display:  flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+    gap: 36px;
+    margin: 8px 12px;
+
+    .room{
+        display: flex;
+        flex-direction: row;
+        // justify-content: flex-end;
+        padding: 12px 16px;
+        min-width: 150px;
+        border-radius: 4px;
+        cursor: pointer;
+        border: 1px solid var(--light-gray);
+        box-shadow: 0px 0px 6px 4px rgba($color: var(--dark-gray), $alpha: 0.8);
+
+        .bottom{
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+
+            .roomName{
+                font-size: 18px;
+                margin: 0;
+                color: var(--bold-font-color);
+            }
+
+            .member{
+                font-size: 14px;
+                color: var(--dark-gray);
+                font-weight: 400;
+                margin: 0;
+            }
+        }
+
+        .join{
+           border-radius: 8px;
+           background-color: var(--primary);
+           color: #fff;
+        }
+
+        &.newRoom{
+        box-shadow: 0px 0px 6px 4px rgba($color: var(--dark-gray), $alpha: 0.4);
+            justify-content: center;
+            align-items: center;
+            color: var(--dark-gray);
+        }
+    }
+}
+
+
+.modal {
+    position: fixed;
+    background-color: rgba($color: #fff, $alpha: 0.8);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    .modalContent{
+        width: 60%;
+        max-width: calc(var(--max-app-content-width) / 2);
+        margin: 0 auto;
+        margin-top: 10%;
+        padding: 20px 16px;
+        background-color: #fff;
+        border: 1px solid var(--light-gray);
+        border-radius: 8px;
+        box-shadow: 0px 0px 8px 4px rgba(178,178,178, 0.4);
+
+        .title{
+            margin: 0;
+            margin-bottom: 16px;
+        }
+
+        .input {
+            display: block;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 16px;
+            border: 1px solid var(--light-gray);
+            box-shadow: 0px 0px 2px 0px rgba(178,178,178, 0.5);
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: #fff;
+            display: block;
+            margin-left: auto;
+
+            &:disabled{
+                cursor: not-allowed;
+            }
+        }
+    }
+}

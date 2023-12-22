@@ -1,0 +1,18 @@
+.root {
+    min-height: 100vh;
+}
+
+.container{
+    max-width: var(--max-app-content-width);
+    margin: 0 auto;
+}
+
+.btn {
+    padding: 8px 12px;
+    min-width: 80px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+}

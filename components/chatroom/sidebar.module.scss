@@ -6,12 +6,19 @@
     background-color: #fff;
     height: 64px;
     width: 100%;
+    padding: 0 16px;
     border-bottom: 1px solid var(--light-gray);
 
     /** for the lols */
     display: flex;
     align-items: center;
-    justify-content: center;
+
+    .button{
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        margin-right: 12px;
+    }
 }
 
 .rooms {
@@ -24,6 +31,10 @@
         border-bottom: 1px solid var(--light-gray);
         transition: color 15ms ease-in-out;
 
+        &.active .roomName{
+            color: var(--primary);
+        }
+        
         &:hover{
             color: var(--dark-gray);
         }

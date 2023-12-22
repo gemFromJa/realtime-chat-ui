@@ -1,0 +1,49 @@
+.nav{
+    height: 64px;
+    width: 100%;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.content {
+    width: 100%;
+    max-width: var(--max-app-content-width);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    
+
+    .actions {
+        font-size: 12px;
+
+        .link{
+            margin-right: 12px;
+            cursor: pointer;
+            color: var(--primary);
+
+            &:hover{
+                opacity: 0.75;
+            }
+        }
+
+        .greeting{
+            color: #353030;
+            margin-right: 12px;
+            
+            .name{
+                color: var(--font-color);
+            }
+        }
+
+        .languageSelector {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--dark-gray);
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+    }
+}
