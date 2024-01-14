@@ -1,4 +1,4 @@
-A trivial App Built with NextJs to showcase RealTime messaging with automatic image translation
+A trivial App Built with NextJs to showcase RealTime messaging (using websockets) with automatic language translation
 
 
 ### TODO: 
